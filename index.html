@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Start Weglot translation code -->
+    <link rel="alternate" hreflang="da" href="https://www.ensomhedital.dk" />
+    <link rel="alternate" hreflang="en" href="https://en.ensomhedital.dk" />
+    <script
+      type="text/javascript"
+      src="https://cdn.weglot.com/weglot.min.js"
+    ></script>
+    <script>
+      Weglot.initialize({
+        api_key: "wg_6f74280d69dcab196fa640c26b6c77368",
+        switchers: [
+          {
+            style: {},
+            // Move switcher somewhere in the page
+            location: {
+              target: ".lang",
+              sibling: null,
+            },
+          },
+        ],
+      });
+    </script>
+    <!-- End Weglot translation code -->
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="form-page" style="display: flex; justify-content: space-around">
+      <div style="display: flex">
+        <div class="container" style="width: 500px; height: 567px">
+          <div class="row d-flex justify-content-center" style="height: 100%">
+            <div>
+              <form
+                class="needs-validation"
+                id="regForm"
+                style="display: flex; flex-direction: column; height: 100%"
+                novalidate
+              >
+                <div class="form-header mb-3">
+                  <a
+                    id="prevBtn"
+                    class="text-decoration-none"
+                    style="color: #266ed3"
+                    href="#"
+                  >
+                    <i
+                      class="bi bi-arrow-left"
+                      style="color: #0d6efd; vertical-align: middle"
+                    ></i>
+                    <span
+                      id="prevBtnText"
+                      style="color: #0d6efd; vertical-align: middle"
+                    ></span>
+                  </a>
+                  <div class="all-steps" id="all-steps">
+                    <span class="index">1</span>
+                    <span class="index">2</span>
+                    <span class="index">3</span>
+                  </div>
+                </div>
+                <div class="form-tab">
+                  <p class="form-title">Fortæl os om interventionen</p>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="ProjectName">Projektnavn</label>
+                      <button
+                        onclick="openKnowledgeBase('https://ensomhedital.webflow.io/knowledge')"
+                        tabindex="-1"
+                        class="btn"
+                        type="button"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        data-bs-title="Angiv navnet på dit projekt eller din intervention."
+                        data-bs-custom-class="custom-tooltip"
+                      >
+                        <i class="bi bi-info-circle"></i>
+                      </button>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control field"
+                      id="ProjectName"
+                      placeholder="Projektnavn"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="InterventionType">Interventionstype</label>
+                      <button
+                        tabindex="-1"
+                        class="btn"
+                        type="button"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        data-bs-title="Vælg venligst en af de medfølgende interventionstyper, der bedst afspejler din intervention. Hvis ingen af disse interventionstyper afspejler din intervention, eller hvis din intervention er en blanding af forskellige interventionstyper, skal du vælge 'Anden interventionstype'."
+                        data-bs-custom-class="custom-tooltip"
+                      >
+                        <i class="bi bi-info-circle"></i>
+                      </button>
+                    </div>
+                    <select
+                      class="form-select field"
+                      id="InterventionType"
+                      aria-label="Intervention Type"
+                    >
+                      <option selected></option>
+                      <option value="1">Socialt netværk</option>
+                      <option value="2">Social støtte</option>
+                      <option value="3">
+                        Træning i sociale og følelsesmæssige færdigheder
+                      </option>
+                      <option value="4">Psykologisk behandling</option>
+                      <option value="5">
+                        Anden interventionstype (anvender gennemsnitlig
+                        effektstørrelse blandt interventionstyperne)
+                      </option>
+                      <!-- <option value="6">Egen</option> -->
+                    </select>
+                  </div>
+                  <div class="">
+                    <div class="form-label">
+                      <label for="TargetAudience"
+                        >Aldersgruppe af deltagere</label
+                      >
+                      <button
+                        tabindex="-1"
+                        class="btn"
+                        type="button"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        data-bs-title="Vælg den aldersgruppe, der bedst afspejler deltagernes demografi."
+                        data-bs-custom-class="custom-tooltip"
+                      >
+                        <i class="bi bi-info-circle"></i>
+                      </button>
+                    </div>
+                    <select
+                      class="form-select field"
+                      id="TargetAudience"
+                      aria-label="Target audience"
+                    >
+                      <option selected></option>
+                      <option value="1">Generel befolkning</option>
+                      <option value="2">Ungdom, 0-15</option>
+                      <option value="3">Arbejdsdygtig alder, 16-64</option>
+                      <option value="4">Ældre, 65+</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-tab">
+                  <p class="form-title">
+                    Fortæl os om deltagere og omkostninger
+                  </p>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="NumberOfParticipants">Antal deltagere</label>
+                      <button
+                        tabindex="-1"
+                        class="btn"
+                        type="button"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        data-bs-title="Antal deltagere, der forventes at fuldføre interventionen, eller som har fuldført interventionen."
+                        data-bs-custom-class="custom-tooltip"
+                      >
+                        <i class="bi bi-info-circle"></i>
+                      </button>
+                    </div>
+
+                    <input
+                      type="number"
+                      min="1"
+                      oninput="validity.valid||(value='');"
+                      class="form-control field"
+                      id="NumberOfParticipants"
+                      placeholder="Antal deltagere"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="Total-cost-of-intervention"
+                        >Estimerede omkostninger</label
+                      >
+                      <button
+                        tabindex="-1"
+                        class="btn"
+                        type="button"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        data-bs-title="I DKK i alt på tværs af alle deltagere."
+                        data-bs-custom-class="custom-tooltip"
+                      >
+                        <i class="bi bi-info-circle"></i>
+                      </button>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control field number-separator"
+                      onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                      placeholder="Estimerede omkostninger"
+                    />
+                    <input
+                      type="text"
+                      class="form-control field hidden"
+                      id="Total-cost-of-intervention"
+                    />
+                  </div>
+                </div>
+                <div class="form-tab">
+                  <p class="form-title">
+                    (Valgfrit) Kender du den forventede eller faktiske effekt af
+                    din ensomhedsintervention?
+                  </p>
+                  <p class="form-text-custom">
+                    Hvis du har pålidelige data, såsom før-og-efter-målinger
+                    eller sammenligninger med en kontrolgruppe, bedes du angive
+                    dem som input. Disse data kan bruges til at angive effekten
+                    af din intervention ved at måle reduktionen på
+                    UCLA-3-skalaen. Det er ikke påkrævet at have disse data for
+                    at bruge beregneren. Hvis du ikke har dataene, kan du
+                    fortsætte ved at trykke på "spring over". Vi anbefaler, at
+                    du holder dig til de interventionstyper, der er angivet i
+                    begyndelsen, og læser forholdsreglerne i informationsikonet
+                  </p>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="EffectSize"
+                        >Effektstørrelse (UCLA-3-skala)
+                      </label>
+                      <button
+                        onclick="openKnowledgeBase('https://ensomhedital.webflow.io/metode')"
+                        tabindex="-1"
+                        class="btn"
+                        type="button"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        data-bs-title="Vær forsigtig, hvis din effekt overstiger 1 point på UCLA-skalaen. Beviser tyder på, at effektstørrelser på mere end 1 er usandsynlige. Effektstørrelsen må ikke overstige 3 point på UCLA-skalaen, da dette svarer til at løfte alle deltagere ud af ensomhed.
+                        For vejledning om bedste praksis for måling af et interventions effektivitet henvises til pdf-guiden.
+                        Hvis du ikke ved, hvordan du angiver den forventede eller faktiske indvirkning af interventionen på UCLA-skalaen, men på en anden skala (f.eks. på UCLA-skalaen eller med hensyn til andelen af deltagere, der oplever en væsentlig reduktion i ensomhed), bedes du kontakte os via 'kontaktsiden', og vi vil gerne hjælpe med at konvertere dine inputdata.
+                        Klik på ikonet for at læse mere
+                        "
+                        data-bs-custom-class="custom-tooltip"
+                      >
+                        <i class="bi bi-info-circle"></i>
+                      </button>
+                    </div>
+                    <input
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      class="form-control field"
+                      id="EffectSize"
+                      placeholder="Effektstørrelse (UCLA-3-skala)"
+                      value=""
+                      oninput="validity.valid||(value='');"
+                      onchange="validate()"
+                    />
+                    <div class="invalid-feedback" id="EffectSize-invalid">
+                      Værdien skal være mellem 0,01 og 3
+                    </div>
+                  </div>
+                </div>
+                <div class="form-tab">
+                  <p class="form-title">Hvor skal vi sende rapporten hen?</p>
+                  <p class="form-text-custom">
+                    Udfyld venligst nedenstående oplysninger for at modtage den
+                    fulde rapport.
+                  </p>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="OrganisationName">Organisationsnavn</label>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control field"
+                      id="OrganisationName"
+                      placeholder="Organisationsnavn"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="OrganisationType">Organisationstype</label>
+                    </div>
+                    <select
+                      class="form-select mb-3 field"
+                      id="OrganisationType"
+                      aria-label="Organisation type"
+                    >
+                      <option selected></option>
+                      <option value="1">Kommune</option>
+                      <option value="2">Region</option>
+                      <option value="3">Offentlig institution</option>
+                      <option value="4">Social indsats</option>
+                      <option value="5">Fond</option>
+                      <option value="6">Privat virksomhed</option>
+                      <option value="7">Privat person</option>
+                      <option value="8">NGO</option>
+                      <option value="9">Andet</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="Name">Dit navn</label>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control field"
+                      id="Name"
+                      placeholder="Dit navn"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="Email">Din email</label>
+                    </div>
+                    <input
+                      type="email"
+                      class="form-control field"
+                      id="Email"
+                      placeholder="navn@eksempel.com"
+                    />
+                  </div>
+                  <div>
+                    <input type="checkbox" name="Concent" id="Concent" />
+                    <label for="Concent"
+                      >Jeg giver tilladelse til at blive opdateret med
+                      nyhedsbreve.</label
+                    >
+                  </div>
+                </div>
+                <div style="display: flex; margin-top: auto" id="buttons">
+                  <button
+                    type="button"
+                    style="
+                      border: 1px solid #528de0;
+                      color: #528de0;
+                      margin-right: 16px;
+                    "
+                    class="button hidden btn nextBtn"
+                    id="idkBtn"
+                  >
+                    Spring over
+                  </button>
+                  <button
+                    type="button"
+                    id="nextBtn"
+                    class="button btn nextBtn"
+                    style="background: #266ed3; color: #ffffff"
+                  >
+                    Næste
+                  </button>
+                  <button
+                    type="button"
+                    id="submit"
+                    class="button btn nextBtn hidden"
+                    style="background: #266ed3; color: #ffffff"
+                  >
+                    Send
+                  </button>
+                </div>
+                <div id="message" class="hidden">
+                  <p class="form-title">Tjek din indbakke!</p>
+                  <p class="form-text">
+                    Tak, fordi du bruger Ensomhedsberegneren. Dine resultater
+                    vil blive delt med dig via e-mail inden for få minutter.
+                    Hvis du ikke har modtaget en e-mail fra os inden for et
+                    øjeblik, bedes du tjekke din spam-mappe eller kontakte os
+                    via kontaktformularen.
+                  </p>
+                  <button
+                    id="goback"
+                    class="btn btn-primary button"
+                    style="
+                      padding: 12px 32px;
+                      width: 460px;
+                      height: 43px;
+                      background: #266ed3;
+                      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+                      border-radius: 100px;
+                      line-height: 19px;
+                    "
+                  >
+                    Tilbage til hjemmeside
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lang hidden"></div>
+      <!-- <img
+        src="./Group 257.png"
+        id="template"
+        class="hidden"
+        style="max-height: 700px"
+      /> -->
+    </div>
+    <script>
+      function validate() {
+        const value = document.getElementById("EffectSize").value;
+        const interventionType =
+          document.getElementById("InterventionType").value;
+        if (
+          value > 3 ||
+          value == 0 ||
+          (interventionType == 6 && value == 0) ||
+          (interventionType == 6 && value == "") ||
+          (interventionType == 6 && value == null)
+        ) {
+          document.getElementById("nextBtn").style.display = "none";
+          document.getElementById("EffectSize-invalid").style.display = "block";
+        } else {
+          document.getElementById("nextBtn").style.display = "block";
+          document.getElementById("EffectSize-invalid").style.display = "none";
+        }
+      }
+    </script>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      );
+      function openKnowledgeBase(url) {
+        window.open(url, "_blank");
+      }
+    </script>
+    <script>
+      var console = {
+        __on: {},
+        addEventListener: function (name, callback) {
+          this.__on[name] = (this.__on[name] || []).concat(callback);
+          return this;
+        },
+        dispatchEvent: function (name, value) {
+          this.__on[name] = this.__on[name] || [];
+          for (var i = 0, n = this.__on[name].length; i < n; i++) {
+            this.__on[name][i].call(this, value);
+          }
+          return this;
+        },
+        log: function () {
+          var a = [];
+          // For V8 optimization
+          for (var i = 0, n = arguments.length; i < n; i++) {
+            a.push(arguments[i]);
+          }
+          this.dispatchEvent("log", a);
+        },
+      };
+    </script>
+    <script>
+      $(document).ready(() => {
+        const url = "https://api.ensomhedital.dk/api/report?";
+        let tabindex = 0;
+        const steps = $(".all-steps");
+        const faneElements = $(".form-tab");
+        faneElements[0].style.display = "block";
+        steps.children()[tabindex].classList.add("active");
+        $("#regForm").submit(function (evt) {
+          evt.preventDefault();
+        });
+        $(".nextBtn").click(() => {
+          if (tabindex == 2) {
+            $("#nextBtn").hide();
+            $("#submit").show();
+          }
+          var validation = validate(faneElements[tabindex]);
+          if (validation.success) {
+            faneElements[tabindex].style.display = "none";
+            if (faneElements.length <= tabindex + 1) {
+              tabindex++;
+              $(steps).hide();
+              $("#prevBtn").hide();
+              $("#buttons").hide();
+              $("#message").show();
+              submit();
+            } else {
+              steps.children()[tabindex].classList.remove("active");
+              tabindex += 1;
+              if (tabindex == 2) {
+                $("#idkBtn").show();
+              } else {
+                $("#idkBtn").hide();
+              }
+              if (tabindex >= steps.children().length) {
+                steps.children().addClass("active");
+              } else {
+                steps.children()[tabindex].classList.add("active");
+              }
+              faneElements[tabindex].style.display = "block";
+              window.parent.scrollTo(0, 0);
+            }
+          } else {
+            alert(validation.message);
+          }
+        });
+        $("#idkBtn").click(() => {
+          $("#EffectSize").val("0");
+          effectSize = 0
+        });
+        $("#prevBtn").click(() => {
+          if (tabindex == 2) {
+            $("#EffectSize").val("");
+            $("#message").hide();
+            document.getElementById("EffectSize-invalid").style.display =
+              "none";
+          }
+          if (tabindex == 0) {
+            window.parent.location = "https://ensomhedital.webflow.io/";
+          }
+          if (tabindex < faneElements.length)
+            faneElements[tabindex].style.display = "none";
+          steps.children().removeClass("active");
+          $("#buttons").show();
+          $("#message").hide();
+          tabindex -= 1;
+          if (tabindex == 2) {
+            $("#idkBtn").show();
+          } else {
+            $("#idkBtn").hide();
+          }
+          steps.show();
+          if (tabindex >= steps.children().length) {
+            steps.children().addClass("active");
+          } else {
+            steps.children()[tabindex].classList.add("active");
+          }
+          $("#nextBtn").show();
+          $("#submit").hide();
+          faneElements[tabindex].style.display = "block";
+          window.parent.scrollTo(0, 0);
+        });
+        const validate = (currentTab) => {
+          const inputFields = $(currentTab).find(".field");
+          for (let i = 0; i < inputFields.length; i++) {
+            if (inputFields[i].id == "" || inputFields[i].id == undefined) {
+              break;
+            }
+            if (
+              inputFields[i].value == "" &&
+              inputFields[i].id != "EffectSize"
+            ) {
+              return { success: false, message: "values can't be empty" };
+            }
+            if (
+              inputFields[i].type == "number" &&
+              inputFields[i].value == 0 &&
+              inputFields[i].id != "EffectSize"
+            ) {
+              return { success: false, message: "values can't be 0" };
+            }
+          }
+          return { success: true, message: "" };
+        };
+        function submit(form) {
+          const projectName = document.getElementById("ProjectName").value;
+          const populationType =
+            document.getElementById("TargetAudience").value;
+          const interventionType =
+            document.getElementById("InterventionType").value;
+          const numberOfParticipants = document.getElementById(
+            "NumberOfParticipants"
+          ).value;
+          const totalCostOfIntervention = document.getElementById(
+            "Total-cost-of-intervention"
+          ).value;
+          let effectSize = document.getElementById("EffectSize").value;
+          if (effectSize == undefined || effectSize == "" || effectSize == null)
+            effectSize = 0;
+          const organisationName =
+            document.getElementById("OrganisationName").value;
+          const organisationType =
+            document.getElementById("OrganisationType").value;
+          populationType;
+          const email = document.getElementById("Email").value;
+          const lang = Weglot.getCurrentLang();
+          const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${populationType}&interventionType=${interventionType}&email=${email}&effectScale=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang.toUpperCase()}`;
+          try {
+            fetch(request, {
+              method: "GET",
+              mode: "no-cors",
+            })
+              .then((res) => {
+                console.log(res);
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      });
+    </script>
+    <script>
+      document.getElementById("goback").addEventListener("click", function (e) {
+        window.parent.location.href = "https://ensomhedital.webflow.io/";
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/amiryxe/easy-number-separator/easy-number-separator.js"></script>
+    <script>
+      easyNumberSeparator({
+        selector: ".number-separator",
+        separator: ",",
+        decimalSeparator: ".",
+        resultInput: "#Total-cost-of-intervention",
+      });
+    </script>
+  </body>
+</html>
